@@ -122,6 +122,20 @@ class UserController extends Controller
     }
 
     /**
+     * Check available e-mail.
+     *
+     * @param string $email
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function checkEmail($email = null)
+    {
+        $found = $this->userRepository->getByEmail($email);
+        return new JsonResponse([
+            'avaiable' => is_null($found) ? true : false
+        ]);
+    }
+
+    /**
      * Get requested user by id.
      *
      * @param int $userId

@@ -20,6 +20,11 @@ $api->version('v1', function ($api) {
         'uses' => 'App\Http\Controllers\Auth\AuthController@postLogin',
     ]);
 
+    $api->get('/users/{email}/check-email', [
+        'uses' => 'Api\Users\Controllers\UserController@checkEmail',
+        'as' => 'api.users.check_email'
+    ]);
+
     $api->group([
         'middleware' => 'api.auth',
     ], function ($api) {

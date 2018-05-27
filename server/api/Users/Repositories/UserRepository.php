@@ -45,6 +45,17 @@ class UserRepository
     }
 
     /**
+     * Get one user by email.
+     *
+     * @param string $email
+     * @return App\User
+     */
+    public function getByEmail($email = null)
+    {
+        return $this->user->where('email', $email)->first();
+    }
+
+    /**
      * Create user.
      *
      * @return App\User
