@@ -72,4 +72,15 @@ class CustomerRepository
         return false;
     }
 
+    /**
+     * Delete customer by id.
+     *
+     * @param Api\Customers\Models\Customer $customer
+     * @return bool
+     */
+    public function delete(Customer $customer)
+    {
+        return $customer->delete();
+    }
+
 }

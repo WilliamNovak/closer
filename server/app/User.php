@@ -21,7 +21,7 @@ class User extends Model implements
      */
     protected $fillable = [
         'name',
-        'email',
+        'email'
     ];
 
     /**
@@ -31,7 +31,7 @@ class User extends Model implements
      */
     protected $hidden = [
         'password',
-        'remember_token',
+        'remember_token'
     ];
 
     /**

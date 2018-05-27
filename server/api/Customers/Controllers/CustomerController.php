@@ -9,6 +9,10 @@ use App\Http\Controllers\Controller;
 use Api\Customers\Repositories\CustomerRepository;
 use Api\Customers\Exceptions\CustomerNotFoundException;
 
+/**
+ * Customer Controller.
+ *
+ */
 class CustomerController extends Controller
 {
 
@@ -94,6 +98,26 @@ class CustomerController extends Controller
 
         return new JsonResponse([
             'customer' => $customerUpdated
+        ]);
+    }
+
+    /**
+     * Delete customer by id.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function delete($id = 0)
+    {
+        $customer = $this->getRequestedCustomer($id);
+        $customerDeleted = $this->customerRepository->delete($customer);
+
+        if (!$customerDeleted) {
+            return new JsonResponse([], Response::HTTP_NO_CONTENT);
+        }
+
+        return new JsonResponse([
+            'customer' => []
         ]);
     }
 

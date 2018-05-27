@@ -41,23 +41,39 @@ $api->version('v1', function ($api) {
         ]);
     });
 
-
+    /* Users */
     $api->group([
         'middleware' => 'api.auth',
     ], function ($api) {
+
         $api->get('/users', [
             'uses' => 'Api\Users\Controllers\UserController@index',
             'as' => 'api.users.index'
+        ]);
+        $api->get('/users/{id}', [
+            'uses' => 'Api\Users\Controllers\UserController@show',
+            'as' => 'api.users.show'
+        ]);
+        $api->put('/users/{id}', [
+            'uses' => 'Api\Users\Controllers\UserController@update',
+            'as' => 'api.users.update'
+        ]);
+        $api->delete('/users/{id}', [
+            'uses' => 'Api\Users\Controllers\UserController@delete',
+            'as' => 'api.users.delete'
         ]);
         $api->post('/users', [
             'uses' => 'Api\Users\Controllers\UserController@create',
             'as' => 'api.users.create'
         ]);
+
     });
 
+    /* Customers */
     $api->group([
         'middleware' => 'api.auth',
     ], function ($api) {
+
         $api->get('/customers', [
             'uses' => 'Api\Customers\Controllers\CustomerController@index',
             'as' => 'api.customers.index'
@@ -70,10 +86,15 @@ $api->version('v1', function ($api) {
             'uses' => 'Api\Customers\Controllers\CustomerController@update',
             'as' => 'api.customers.update'
         ]);
+        $api->delete('/customers/{id}', [
+            'uses' => 'Api\Customers\Controllers\CustomerController@delete',
+            'as' => 'api.customers.delete'
+        ]);
         $api->post('/customers', [
             'uses' => 'Api\Customers\Controllers\CustomerController@create',
             'as' => 'api.customers.create'
         ]);
+
     });
 
 });
