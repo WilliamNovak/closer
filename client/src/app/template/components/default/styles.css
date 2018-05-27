@@ -1,0 +1,11 @@
+.breadcrumbs {
+    margin: 10px;
+    display: grid;
+    text-align: left;
+    grid-auto-columns: min-content;
+}
+
+.breadcrumbs .item {
+    grid-row: 1;
+    grid-column: auto;
+}

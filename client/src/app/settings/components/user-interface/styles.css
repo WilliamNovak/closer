@@ -1,0 +1,19 @@
+.preview-nav {
+    width: 100%;
+    padding: 10px!important;
+    height: auto;
+    display: table;
+}
+
+
+.preview-nav .preview-logo {
+    width: 140px;
+    float: left;
+    margin: -5px auto;
+}
+
+.preview-nav .preview-link {
+    float: left;
+    padding: 10px;
+    cursor: pointer;
+}

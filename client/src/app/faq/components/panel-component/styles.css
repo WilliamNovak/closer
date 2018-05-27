@@ -1,0 +1,82 @@
+.Collapsible {
+    margin-bottom: 12px;
+}
+
+.Collapsible__contentInner {
+    padding: 10px 0;
+    text-align: justify;
+}
+
+.Collapsible__contentInner p {
+    margin-bottom: 10px;
+}
+
+.Collapsible__contentInner p:last-child {
+    margin-bottom: 0;
+}
+
+.Collapsible__trigger {
+    display: block;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 700;
+    padding-right: 30px;
+    text-decoration: none;
+    position: relative;
+}
+
+.Collapsible__trigger:after {
+    content: '↓';
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    display: block;
+    transition: transform 300ms;
+}
+
+.Collapsible__trigger.is-open:after {
+    transform: rotateZ(180deg);
+}
+
+.Collapsible__trigger.is-disabled {
+    opacity: 0.5;
+}
+
+.CustomTriggerCSS {
+}
+
+.CustomTriggerCSS--open {
+
+}
+
+.Collapsible__custom-sibling {
+
+}
+
+
+.tab-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.tab-item {
+    padding: 10px;
+    width: 100%;
+    clear: both;
+    background-color: #fff;
+    transition: 0.5ms;
+    border-left: solid 3px #fff;
+    font-weight: 100;
+}
+
+.tab-item.is-active {
+    border-left: solid 3px orange;
+    margin-left: -1px;
+    font-weight: 700;
+}
+
+.tab-panel {
+    margin: 16px;
+}

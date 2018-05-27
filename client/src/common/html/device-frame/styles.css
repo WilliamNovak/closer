@@ -1,0 +1,28 @@
+.tablet {
+    background: #eee;
+    border: solid 2px #ccc;
+    border-radius: 8px;
+    width: 80%;
+    display: inline-block;
+}
+
+.tablet .header {
+
+}
+
+.tablet .header .camera {
+    width: 5px;
+    height: 5px;
+    margin: 20px auto;
+    border-radius: 50%;
+    background: #000;
+    display: block;
+}
+
+.tablet .content {
+    width: calc(100% - 60px);
+    margin: 10px 30px 50px 30px;
+    min-height: 600px;
+    background: white;
+    text-align: left;
+}

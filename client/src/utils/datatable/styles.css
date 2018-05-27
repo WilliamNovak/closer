@@ -1,0 +1,17 @@
+.row-thumbnail {
+    width: 60px;
+    height: 44px;
+    overflow: hidden;
+    border-radius: 3px;
+    margin: -8px 0;
+}
+
+
+.datable tr,
+.datable tr td {
+    transform: 200ms;
+}
+
+.datable tr:hover td {
+    background-color: #fafafa;
+}

@@ -1,0 +1,83 @@
+.counter-card {
+    display: table;
+    width: 100%;
+    padding: 16px;
+    background: #fff;
+    -webkit-box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.20);
+    -moz-box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.20);
+    box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.20);
+}
+
+
+.counter-card > .icon {
+    width: 60px;
+    display: inline;
+    border-left: solid 2px #3b74ce;
+    padding: 0 10px;
+    font-size: 32px;
+    margin-left: -16px;
+    float: left;
+    display: inline-block;
+    color: #3b74ce;
+}
+
+.counter-card .content {
+    width: calc(100% - 60px);
+    float: right;
+    display: inline-block;
+    text-align: right;
+}
+
+.counter-card .counter {
+    font-size: 22px;
+    color: #3b74ce;
+    font-weight: 900;
+}
+
+.counter-card .title {
+    font-size: 13px;
+    color: #666;
+    font-weight: 100;
+}
+
+
+.chart-card {
+    display: table;
+    width: 100%;
+    -webkit-box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.20);
+    -moz-box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.20);
+    box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.20);
+    background: #fff;
+}
+
+.chart-card .header {
+    width: 100%;
+    display: table;
+}
+
+.chart-card .icon {
+    width: 60px;
+    display: inline;
+    border-left: solid 2px #3b74ce;
+    padding: 0 10px;
+    font-size: 32px;
+    margin-left: 0px;
+    margin-top: 16px;
+    display: inline-block;
+    color: #3b74ce;
+}
+
+.chart-card .title {
+    width: calc(100% - 60px);
+    display: inline;
+    font-size: 22px;
+    line-height: 32px;
+}
+
+.chart-card .content {
+    width: 100%;
+    clear: both;
+    display: block;
+    border-top: dashed 1px #ccc;
+    margin-top: 16px;
+}

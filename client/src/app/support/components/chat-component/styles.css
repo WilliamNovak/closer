@@ -1,0 +1,167 @@
+.chat-icon-button {
+    width: 64px;
+    height: 64px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #3a62c9;
+    color: #fff;
+    z-index: 99999;
+    line-height: 64px;
+    font-size: 32px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.is-visible {
+    display: block;
+}
+
+.is-hidden {
+    display: none;
+}
+
+
+#chat-window-component {
+    z-index: 999999;
+    width: 320px;
+}
+
+
+.panel {
+    background: #fafafa;
+    margin-bottom: 0px;
+    border: solid 1px #ccc;
+}
+
+.panel .panel-heading {
+    font-weight: 100;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.chat-window {
+    bottom: 0;
+    position: fixed;
+    float: right;
+    right: 10px;
+}
+
+.chat-window input,
+.chat-window .btn {
+    border-radius: 0 !important;
+    border: none;
+}
+
+.chat-window input {
+    border-radius: 5px 0 0 5px!important;
+}
+
+.chat-window .btn {
+    width: 40px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 0 5px 5px 0!important;
+}
+
+.chat-window > .panel {
+    border-radius: 5px 5px 0 0!important;
+}
+
+.chat-window .panel-footer {
+    padding: 10px;
+    background: #ddd;
+}
+
+.chat-container-base {
+    background: #ddd;
+    margin: 0;
+    padding: 10px 10px 10px 0px;
+    max-height: 300px;
+    overflow-x: hidden;
+}
+
+
+.message-receive-content{
+    padding-left:0;
+    margin-left:0;
+    background-color: #eee!important;
+}
+
+.message-sent-content{
+    padding-bottom:20px !important;
+    margin-right:0;
+}
+
+.messages {
+    background: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    max-width: 100%;
+}
+
+.messages > p {
+    font-size: 13px;
+    margin: 0 0 0.2rem 0;
+}
+
+.messages > time {
+    font-size: 11px;
+    color: #ccc;
+}
+
+.chat-message {
+    padding: 10px;
+    overflow: hidden;
+    display: flex;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.avatar {
+    position: relative;
+}
+
+.message-receive > .avatar:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border: 5px solid #FFF;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.message-sent {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.message-sent > .avatar:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: 5px solid white;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    box-shadow: 1px 1px 2px rgba(black, 0.2);
+}
+
+.msg_sent > time{
+    float: right;
+}
+
+
+.btn-group.dropup{
+    position:fixed;
+    left:0px;
+    bottom:0;
+}
