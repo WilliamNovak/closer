@@ -3,6 +3,7 @@
 namespace Api\Users\Repositories;
 
 use App\User;
+use Api\Users\Models\Role;
 
 class UserRepository
 {
@@ -75,6 +76,25 @@ class UserRepository
     public function update(User $user, $data = [])
     {
         $updated = $user->update($data);
+
+        if ($updated) {
+            return $this->getById($user->id);
+        }
+
+        return false;
+    }
+
+    /**
+     * Update user role by user id.
+     *
+     * @param App\User $user
+     * @param Api\Users\Models\Role $role
+     * @return App\User
+     */
+    public function updateRole(User $user, Role $role)
+    {
+        $user->role_id = $role->id;
+        $updated = $user->save();
 
         if ($updated) {
             return $this->getById($user->id);

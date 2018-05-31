@@ -7,6 +7,7 @@ use Laravel\Lumen\Auth\Authorizable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
+use Api\Users\Models\Role;
 
 class User extends Model implements
     AuthenticatableContract,
@@ -30,6 +31,7 @@ class User extends Model implements
      * @var array
      */
     protected $hidden = [
+        'role_id',
         'password',
         'remember_token'
     ];
@@ -52,5 +54,10 @@ class User extends Model implements
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
     }
 }

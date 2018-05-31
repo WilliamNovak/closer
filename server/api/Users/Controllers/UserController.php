@@ -7,7 +7,9 @@ use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Api\Users\Repositories\UserRepository;
+use Api\Users\Repositories\RoleRepository;
 use Api\Users\Exceptions\UserNotFoundException;
+use Api\Users\Exceptions\RoleNotFoundException;
 
 /**
  * User Controller.
@@ -23,13 +25,20 @@ class UserController extends Controller
     private $userRepository;
 
     /**
+     *
+     * @var Api\Users\Repositories\UserRepository
+     */
+    private $roleRepository;
+
+    /**
      * User Controller Class Constructor.
      *
      * @param Api\Users\Repositories\UserRepository $userRepository
      */
-    public function __construct(UserRepository $userRepository)
+    public function __construct(UserRepository $userRepository, RoleRepository $roleRepository)
     {
         $this->userRepository = $userRepository;
+        $this->roleRepository = $roleRepository;
     }
 
     /**
@@ -91,6 +100,36 @@ class UserController extends Controller
         $user = $this->getRequestedUser($id);
         $data = $request->get('user');
         $userUpdated = $this->userRepository->update($user, $data);
+
+        if (!$userUpdated) {
+            return new JsonResponse([], Response::HTTP_NO_CONTENT);
+        }
+
+        return new JsonResponse([
+            'user' => $userUpdated
+        ]);
+    }
+
+    /**
+     * Update user role by user id.
+     *
+     * @param int $id
+     * @param Illuminate\Http\Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function updateRole($id = 0, Request $request)
+    {
+        $user = $this->getRequestedUser($id);
+
+        /* First, check if received role slug has exists. */
+        $data = $request->get('role');
+        $slug = $data['slug'];
+        $role = $this->roleRepository->getBySlug($slug);
+        if (!$role) {
+            throw new RoleNotFoundException();
+        }
+
+        $userUpdated = $this->userRepository->updateRole($user, $role);
 
         if (!$userUpdated) {
             return new JsonResponse([], Response::HTTP_NO_CONTENT);

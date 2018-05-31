@@ -46,11 +46,12 @@ $api->version('v1', function ($api) {
         ]);
     });
 
-    /* Users */
+
     $api->group([
         'middleware' => 'api.auth',
     ], function ($api) {
 
+        /* Users */
         $api->get('/users', [
             'uses' => 'Api\Users\Controllers\UserController@index',
             'as' => 'api.users.index'
@@ -63,6 +64,10 @@ $api->version('v1', function ($api) {
             'uses' => 'Api\Users\Controllers\UserController@update',
             'as' => 'api.users.update'
         ]);
+        $api->put('/users/{id}/roles', [
+            'uses' => 'Api\Users\Controllers\UserController@updateRole',
+            'as' => 'api.users.update.role'
+        ]);
         $api->delete('/users/{id}', [
             'uses' => 'Api\Users\Controllers\UserController@delete',
             'as' => 'api.users.delete'
@@ -72,13 +77,29 @@ $api->version('v1', function ($api) {
             'as' => 'api.users.create'
         ]);
 
-    });
+        /* Roles */
+        $api->get('/roles', [
+            'uses' => 'Api\Users\Controllers\RoleController@index',
+            'as' => 'api.roles.index'
+        ]);
+        $api->get('/roles/{role}', [
+            'uses' => 'Api\Users\Controllers\RoleController@show',
+            'as' => 'api.roles.show'
+        ]);
+        $api->put('/roles/{role}', [
+            'uses' => 'Api\Users\Controllers\RoleController@update',
+            'as' => 'api.roles.update'
+        ]);
+        $api->delete('/roles/{role}', [
+            'uses' => 'Api\Users\Controllers\RoleController@delete',
+            'as' => 'api.roles.delete'
+        ]);
+        $api->post('/roles', [
+            'uses' => 'Api\Users\Controllers\RoleController@create',
+            'as' => 'api.roles.create'
+        ]);
 
-    /* Customers */
-    $api->group([
-        'middleware' => 'api.auth',
-    ], function ($api) {
-
+        /* Customers */
         $api->get('/customers', [
             'uses' => 'Api\Customers\Controllers\CustomerController@index',
             'as' => 'api.customers.index'
