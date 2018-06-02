@@ -8,8 +8,8 @@ use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Api\Users\Repositories\UserRepository;
 use Api\Users\Repositories\RoleRepository;
-use Api\Users\Exceptions\UserNotFoundException;
-use Api\Users\Exceptions\RoleNotFoundException;
+use Api\Users\Services\UserService;
+use Api\Users\Services\RoleService;
 
 /**
  * User Controller.
@@ -26,25 +26,44 @@ class UserController extends Controller
 
     /**
      *
+     * @var Api\Users\Services\UserService
+     */
+    private $userService;
+
+    /**
+     *
      * @var Api\Users\Repositories\UserRepository
      */
     private $roleRepository;
 
     /**
+     *
+     * @var Api\Users\Services\RoleService
+     */
+    private $roleService;
+
+    /**
      * User Controller Class Constructor.
      *
      * @param Api\Users\Repositories\UserRepository $userRepository
+     * @param Api\Users\Services\UserService $userService
+     * @param Api\Users\Repositories\RoleRepository $roleRepository
+     * * @param Api\Users\Services\RoleService $roleService
      */
-    public function __construct(UserRepository $userRepository, RoleRepository $roleRepository)
+    public function __construct(
+        UserRepository $userRepository, UserService $userService,
+        RoleRepository $roleRepository, RoleService $roleService)
     {
         $this->userRepository = $userRepository;
+        $this->userService = $userService;
         $this->roleRepository = $roleRepository;
+        $this->roleService = $roleService;
     }
 
     /**
      * Get all users.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return Illuminate\Http\JsonResponse
      */
     public function index()
     {
@@ -62,12 +81,13 @@ class UserController extends Controller
     /**
      * Get user by id.
      *
-     * @param int $id
-     * @return \Illuminate\Http\JsonResponse
+     * @param int $userId
+     * @return Illuminate\Http\JsonResponse
      */
-    public function show($id = 0)
+    public function show($userId = 0)
     {
-        $user = $this->getRequestedUser($id);
+        $user = $this->userService->getRequestedUser($userId);
+        $user['role'] = $user->role;
         return new JsonResponse([
             'user' => $user
         ]);
@@ -83,6 +103,7 @@ class UserController extends Controller
     {
         $data = $request->get('user');
         $user = $this->userRepository->create($data);
+        $user['role'] = $user->role;
         return new JsonResponse([
             'user' => $user
         ], Response::HTTP_CREATED);
@@ -91,13 +112,13 @@ class UserController extends Controller
     /**
      * Update user by id.
      *
-     * @param int $id
+     * @param int $userId
      * @param Illuminate\Http\Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return Illuminate\Http\JsonResponse
      */
-    public function update($id = 0, Request $request)
+    public function update($userId = 0, Request $request)
     {
-        $user = $this->getRequestedUser($id);
+        $user = $this->userService->getRequestedUser($userId);
         $data = $request->get('user');
         $userUpdated = $this->userRepository->update($user, $data);
 
@@ -113,21 +134,18 @@ class UserController extends Controller
     /**
      * Update user role by user id.
      *
-     * @param int $id
+     * @param int $userId
      * @param Illuminate\Http\Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return Illuminate\Http\JsonResponse
      */
-    public function updateRole($id = 0, Request $request)
+    public function updateRole($userId = 0, Request $request)
     {
-        $user = $this->getRequestedUser($id);
+        $user = $this->userService->getRequestedUser($userId);
 
         /* First, check if received role slug has exists. */
         $data = $request->get('role');
         $slug = $data['slug'];
-        $role = $this->roleRepository->getBySlug($slug);
-        if (!$role) {
-            throw new RoleNotFoundException();
-        }
+        $role = $this->roleService->getRequestedRole($slug);
 
         $userUpdated = $this->userRepository->updateRole($user, $role);
 
@@ -143,12 +161,12 @@ class UserController extends Controller
     /**
      * Delete user by id.
      *
-     * @param int $id
-     * @return \Illuminate\Http\JsonResponse
+     * @param int $userId
+     * @return Illuminate\Http\JsonResponse
      */
-    public function delete($id = 0)
+    public function delete($userId = 0)
     {
-        $user = $this->getRequestedUser($id);
+        $user = $this->userService->getRequestedUser($userId);
         $userDeleted = $this->userRepository->delete($user);
 
         if (!$userDeleted) {
@@ -164,7 +182,7 @@ class UserController extends Controller
      * Check available e-mail.
      *
      * @param string $email
-     * @return \Illuminate\Http\JsonResponse
+     * @return Illuminate\Http\JsonResponse
      */
     public function checkEmail($email = null)
     {
@@ -174,19 +192,4 @@ class UserController extends Controller
         ]);
     }
 
-    /**
-     * Get requested user by id.
-     *
-     * @param int $userId
-     * @return App\User
-     * @return Api\Users\Exceptions\UserNotFoundException;
-     */
-    private function getRequestedUser($userId = 0)
-    {
-        $user = $this->userRepository->getById($userId);
-        if (is_null($user)) {
-            throw new UserNotFoundException();
-        }
-        return $user;
-    }
 }

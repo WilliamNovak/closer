@@ -53,14 +53,14 @@ class RoleController extends Controller
     }
 
     /**
-     * Get role by id or slug.
+     * Get role by id or slug name.
      *
-     * @param mixed $role
+     * @param mixed $identifier (default: null)
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show($role = 0)
+    public function show($identifier = null)
     {
-        $role = $this->getRequestedRole($role);
+        $role = $this->getRequestedRole($identifier);
         return new JsonResponse([
             'role' => $role
         ]);
@@ -91,15 +91,15 @@ class RoleController extends Controller
     }
 
     /**
-     * Update role by id or slug.
+     * Update role by id or slug name.
      *
-     * @param mixed $role
+     * @param mixed $identifier
      * @param Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update($role = null, Request $request)
+    public function update($identifier = null, Request $request)
     {
-        $role = $this->getRequestedRole($role);
+        $role = $this->getRequestedRole($identifier);
         $data = $request->get('role');
 
         if (isset($data['slug'])) {
@@ -120,12 +120,12 @@ class RoleController extends Controller
     /**
      * Delete role by id or slug.
      *
-     * @param mixed $role
+     * @param mixed $identifier
      * @return \Illuminate\Http\JsonResponse
      */
-    public function delete($role = null)
+    public function delete($identifier = null)
     {
-        $role = $this->getRequestedRole($role);
+        $role = $this->getRequestedRole($identifier);
         $roleDeleted = $this->roleRepository->delete($role);
 
         if (!$roleDeleted) {
@@ -140,16 +140,16 @@ class RoleController extends Controller
     /**
      * Get requested role by id or slug.
      *
-     * @param mixed $role
+     * @param mixed $identifier
      * @return Api\Users\Models\Role
      * @return Api\Users\Exceptions\RoleNotFoundException;
      */
-    private function getRequestedRole($role = null)
+    private function getRequestedRole($identifier = null)
     {
 
-        $role = ( $role > 0 ?
-            $this->roleRepository->getById($role) :
-            $this->roleRepository->getBySlug($role)
+        $role = ( $identifier > 0 ?
+            $this->roleRepository->getById($identifier) :
+            $this->roleRepository->getBySlug($identifier)
         );
 
         if (is_null($role)) {

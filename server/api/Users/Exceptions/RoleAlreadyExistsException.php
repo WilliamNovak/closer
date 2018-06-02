@@ -5,7 +5,7 @@ namespace Api\Users\Exceptions;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Role Not Found Exception Class.
+ * Role Already Exists Exception Class.
  *
  */
 class RoleAlreadyExistsException extends NotFoundHttpException

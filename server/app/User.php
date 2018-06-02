@@ -22,7 +22,8 @@ class User extends Model implements
      */
     protected $fillable = [
         'name',
-        'email'
+        'email',
+        'role_id'
     ];
 
     /**

@@ -1,11 +1,11 @@
 <?php
 
-namespace Api\Users\Models;
+namespace Api\Tags\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Role extends Model {
+class Tag extends Model {
 
     use SoftDeletes;
 
@@ -17,7 +17,7 @@ class Role extends Model {
      * @var array
      */
     protected $fillable = [
-        'name', 'slug'
+        'slug', 'name'
     ];
 
     /**

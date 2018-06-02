@@ -7,7 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Api\Customers\Repositories\CustomerRepository;
-use Api\Customers\Exceptions\CustomerNotFoundException;
+use Api\Customers\Services\CustomerService;
 
 /**
  * Customer Controller.
@@ -23,13 +23,21 @@ class CustomerController extends Controller
     private $customerRepository;
 
     /**
+     *
+     * @var Api\Customers\Services\CustomerService
+     */
+    private $customerService;
+
+    /**
      * Customer Controller Class Constructor.
      *
      * @param Api\Customers\Repositories\CustomerRepository $customerRepository
+     * @param Api\Customers\Services\CustomerService $customerService
      */
-    public function __construct(CustomerRepository $customerRepository)
+    public function __construct(CustomerRepository $customerRepository, CustomerService $customerService)
     {
         $this->customerRepository = $customerRepository;
+        $this->customerService = $customerService;
     }
 
     /**
@@ -58,7 +66,7 @@ class CustomerController extends Controller
      */
     public function show($id = 0)
     {
-        $customer = $this->getRequestedCustomer($id);
+        $customer = $this->customerService->getRequestedCustomer($id);
         return new JsonResponse([
             'customer' => $customer
         ]);
@@ -88,7 +96,7 @@ class CustomerController extends Controller
      */
     public function update($id = 0, Request $request)
     {
-        $customer = $this->getRequestedCustomer($id);
+        $customer = $this->customerService->getRequestedCustomer($id);
         $data = $request->get('customer');
         $customerUpdated = $this->customerRepository->update($customer, $data);
 
@@ -109,7 +117,7 @@ class CustomerController extends Controller
      */
     public function delete($id = 0)
     {
-        $customer = $this->getRequestedCustomer($id);
+        $customer = $this->customerService->getRequestedCustomer($id);
         $customerDeleted = $this->customerRepository->delete($customer);
 
         if (!$customerDeleted) {
@@ -121,19 +129,4 @@ class CustomerController extends Controller
         ]);
     }
 
-    /**
-     * Get requested customer by id.
-     *
-     * @param int $customerId
-     * @return Api\Customers\Models\Customer
-     * @return Api\Customers\Exceptions\CustomerNotFoundException;
-     */
-    private function getRequestedCustomer($customerId = 0)
-    {
-        $customer = $this->customerRepository->getById($customerId);
-        if (is_null($customer)) {
-            throw new CustomerNotFoundException();
-        }
-        return $customer;
-    }
 }

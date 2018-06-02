@@ -4,6 +4,7 @@ namespace Api\Customers\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Api\Customers\Models\CustomField;
 
 class Customer extends Model {
 
@@ -26,7 +27,12 @@ class Customer extends Model {
      * @var array
      */
     protected $hidden = [
-        
+
     ];
+
+    public function customFields()
+    {
+        return $this->hasMany(CustomField::class, 'customer_id');
+    }
 
 }

@@ -1,11 +1,12 @@
 <?php
 
-namespace Api\Users\Models;
+namespace Api\Customers\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Api\Customers\Models\Customer;
 
-class Role extends Model {
+class CustomField extends Model {
 
     use SoftDeletes;
 
@@ -17,7 +18,7 @@ class Role extends Model {
      * @var array
      */
     protected $fillable = [
-        'name', 'slug'
+        'name', 'type', 'value', 'customer_id'
     ];
 
     /**
@@ -26,8 +27,12 @@ class Role extends Model {
      * @var array
      */
     protected $hidden = [
-        'created_at',
-        'updated_at'
+        'customer_id'
     ];
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'customer_id');
+    }
 
 }
