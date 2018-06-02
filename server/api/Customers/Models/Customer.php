@@ -5,6 +5,7 @@ namespace Api\Customers\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Api\Customers\Models\CustomField;
+use Api\Customers\Models\Notes;
 
 class Customer extends Model {
 
@@ -31,6 +32,11 @@ class Customer extends Model {
     ];
 
     public function customFields()
+    {
+        return $this->hasMany(CustomField::class, 'customer_id');
+    }
+
+    public function notes()
     {
         return $this->hasMany(CustomField::class, 'customer_id');
     }

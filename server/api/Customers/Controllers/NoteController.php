@@ -10,6 +10,7 @@ use Api\Customers\Repositories\NoteRepository;
 use Api\Customers\Controllers\CustomerController;
 use Api\Customers\Services\CustomerService;
 use Api\Customers\Services\NoteService;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 /**
  * Note Controller.
@@ -81,6 +82,9 @@ class NoteController extends Controller
     {
         $customer = $this->customerService->getRequestedCustomer($customerId);
         $note = $this->noteService->getRequestedNote($customerId);
+        /* get user and unset then to return only id and name */
+        $user = $note->user; unset($note->user);
+        $note['user'] = ['id' => $user->id, 'name' => $user->name];
         return new JsonResponse([
             'note' => $note
         ]);
@@ -97,6 +101,7 @@ class NoteController extends Controller
     {
         $data = $request->get('note');
         $customer = $this->customerService->getRequestedCustomer($customerId);
+        $data['user_id'] = JWTAuth::parseToken()->authenticate()->id;
         $note = $this->noteRepository->create($customer, $data);
         return new JsonResponse([
             'note' => $note

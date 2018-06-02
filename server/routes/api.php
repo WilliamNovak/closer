@@ -133,6 +133,15 @@ $api->version('v1', function ($api) {
         $api->delete('/stages/{identifier}', ['uses' => 'Api\Stages\Controllers\StageController@delete','as' => 'api.stages.delete']);
         $api->post('/stages', ['uses' => 'Api\Stages\Controllers\StageController@create', 'as' => 'api.stages.create']);
 
+        /*
+        Collections
+         */
+        $api->get('/collections', ['uses' => 'Api\Collections\Controllers\CollectionController@index', 'as' => 'api.collections.index']);
+        $api->get('/collections/{collectionId}', ['uses' => 'Api\Collections\Controllers\CollectionController@show', 'as' => 'api.collections.show']);
+        $api->put('/collections/{collectionId}', ['uses' => 'Api\Collections\Controllers\CollectionController@update', 'as' => 'api.collections.update']);
+        $api->delete('/collections/{collectionId}', ['uses' => 'Api\Collections\Controllers\CollectionController@delete', 'as' => 'api.collections.delete']);
+        $api->post('/collections', ['uses' => 'Api\Collections\Controllers\CollectionController@create', 'as' => 'api.collections.create']);
+
     });
 
 });

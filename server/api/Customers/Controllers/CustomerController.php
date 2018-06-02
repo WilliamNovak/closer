@@ -61,12 +61,12 @@ class CustomerController extends Controller
     /**
      * Get customer by id.
      *
-     * @param int $id
-     * @return \Illuminate\Http\JsonResponse
+     * @param int $customerId
+     * @return Illuminate\Http\JsonResponse
      */
-    public function show($id = 0)
+    public function show($customerId = 0)
     {
-        $customer = $this->customerService->getRequestedCustomer($id);
+        $customer = $this->customerService->getRequestedCustomer($customerId);
         return new JsonResponse([
             'customer' => $customer
         ]);
@@ -90,13 +90,13 @@ class CustomerController extends Controller
     /**
      * Update customer by id.
      *
-     * @param int $id
+     * @param int $customerId
      * @param Illuminate\Http\Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return Illuminate\Http\JsonResponse
      */
-    public function update($id = 0, Request $request)
+    public function update($customerId = 0, Request $request)
     {
-        $customer = $this->customerService->getRequestedCustomer($id);
+        $customer = $this->customerService->getRequestedCustomer($customerId);
         $data = $request->get('customer');
         $customerUpdated = $this->customerRepository->update($customer, $data);
 
@@ -112,12 +112,12 @@ class CustomerController extends Controller
     /**
      * Delete customer by id.
      *
-     * @param int $id
-     * @return \Illuminate\Http\JsonResponse
+     * @param int $customerId
+     * @return Illuminate\Http\JsonResponse
      */
-    public function delete($id = 0)
+    public function delete($customerId = 0)
     {
-        $customer = $this->customerService->getRequestedCustomer($id);
+        $customer = $this->customerService->getRequestedCustomer($customerId);
         $customerDeleted = $this->customerRepository->delete($customer);
 
         if (!$customerDeleted) {

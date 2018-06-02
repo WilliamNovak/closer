@@ -1,13 +1,12 @@
 <?php
 
-namespace Api\Customers\Models;
+namespace Api\Collections\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Api\Customers\Models\Customer;
 use App\User;
 
-class Note extends Model {
+class Collection extends Model {
 
     use SoftDeletes;
 
@@ -19,7 +18,7 @@ class Note extends Model {
      * @var array
      */
     protected $fillable = [
-        'text', 'color', 'customer_id', 'user_id'
+        'name', 'description', 'is_active', 'is_private', 'user_id'
     ];
 
     /**
@@ -28,14 +27,8 @@ class Note extends Model {
      * @var array
      */
     protected $hidden = [
-        'customer_id',
         'user_id'
     ];
-
-    public function customer()
-    {
-        return $this->belongsTo(Customer::class, 'customer_id');
-    }
 
     public function user()
     {

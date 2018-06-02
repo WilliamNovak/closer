@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call('CustomerTableSeeder');
         $this->call('CustomFieldTableSeeder');
         $this->call('NoteTableSeeder');
+        $this->call('CollectionTableSeeder');
     }
 }
