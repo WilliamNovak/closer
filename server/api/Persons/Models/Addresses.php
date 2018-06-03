@@ -13,6 +13,13 @@ class Addresses extends Model {
     protected $table = "person_addresses";
 
     /**
+     * Usage for SoftDeletes.
+     *
+     * @var string
+     */
+    protected $softDelete = true;
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array

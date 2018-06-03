@@ -9,6 +9,11 @@ class Source extends Model {
 
     use SoftDeletes;
 
+    /**
+     * Usage for SoftDeletes.
+     *
+     * @var string
+     */
     protected $softDelete = true;
 
     /**

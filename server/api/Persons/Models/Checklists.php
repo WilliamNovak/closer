@@ -3,12 +3,20 @@
 namespace Api\Persons\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Api\Persons\Models\Person;
-use Api\Tags\Models\Tag;
+use App\User;
 
-class Tags extends Model {
+class Checklists extends Model {
 
-    protected $table = 'person_tags';
+    use SoftDeletes;
+
+    /**
+     * Define name of table of this model.
+     *
+     * @var string
+     */
+    protected $table = 'person_checklists';
 
     /**
      * Usage for SoftDeletes.
@@ -23,7 +31,7 @@ class Tags extends Model {
      * @var array
      */
     protected $fillable = [
-        'person_id', 'tag_id'
+        'name', 'is_closed', 'user_id', 'person_id'
     ];
 
     /**
@@ -33,9 +41,7 @@ class Tags extends Model {
      */
     protected $hidden = [
         'person_id',
-        'tag_id',
-        'created_at',
-        'updated_at',
+        'user_id',
         'deleted_at'
     ];
 
@@ -44,9 +50,9 @@ class Tags extends Model {
         return $this->belongsTo(Person::class, 'person_id');
     }
 
-    public function tag()
+    public function user()
     {
-        return $this->belongsTo(Tag::class, 'tag_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
 }

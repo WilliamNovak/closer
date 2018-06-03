@@ -98,6 +98,15 @@ $api->version('v1', function ($api) {
         $api->post('/persons/{personId}/notes', ['uses' => 'Api\Persons\Controllers\NoteController@create', 'as' => 'api.persons.note.create']);
 
         /*
+        Person Checklist
+         */
+        $api->get('/persons/{personId}/checklists', ['uses' => 'Api\Persons\Controllers\ChecklistController@index', 'as' => 'api.persons.checklist.index']);
+        $api->get('/persons/{personId}/checklists/{checklistId}', ['uses' => 'Api\Persons\Controllers\ChecklistController@show', 'as' => 'api.persons.checklist.show']);
+        $api->put('/persons/{personId}/checklists/{checklistId}', ['uses' => 'Api\Persons\Controllers\ChecklistController@update', 'as' => 'api.persons.checklist.update']);
+        $api->delete('/persons/{personId}/checklists/{checklistId}', ['uses' => 'Api\Persons\Controllers\ChecklistController@delete', 'as' => 'api.persons.checklist.delete']);
+        $api->post('/persons/{personId}/checklists', ['uses' => 'Api\Persons\Controllers\ChecklistController@create', 'as' => 'api.persons.checklist.create']);
+
+        /*
         Person Social
          */
         $api->get('/persons/{personId}/socials', ['uses' => 'Api\Persons\Controllers\SocialController@index', 'as' => 'api.persons.social.index']);

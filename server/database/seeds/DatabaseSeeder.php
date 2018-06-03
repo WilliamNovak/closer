@@ -21,9 +21,10 @@ class DatabaseSeeder extends Seeder
         $this->call('PersonTableSeeder');
         $this->call('PersonAddressTableSeeder');
         $this->call('CustomFieldTableSeeder');
-        $this->call('NoteTableSeeder');
+        $this->call('PersonNoteTableSeeder');
         $this->call('PersonTagTableSeeder');
-        $this->call('CollectionTableSeeder');
         $this->call('PersonSocialTableSeeder');
+        $this->call('PersonChecklistTableSeeder');
+        $this->call('CollectionTableSeeder');
     }
 }

@@ -14,6 +14,13 @@ class Socials extends Model {
     protected $table = 'person_socials';
 
     /**
+     * Usage for SoftDeletes.
+     *
+     * @var string
+     */
+    protected $softDelete = true;
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
