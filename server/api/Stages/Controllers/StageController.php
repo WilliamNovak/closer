@@ -7,7 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Api\Stages\Repositories\StageRepository;
-use Api\Stages\Exceptions\StageNotFoundException;
+use Api\Stages\Services\StageService;
 use Api\Stages\Exceptions\StageAlreadyExistsException;
 use Cocur\Slugify\Slugify;
 
@@ -25,13 +25,21 @@ class StageController extends Controller
     private $stageRepository;
 
     /**
+     *
+     * @var Api\Stages\Services\StageService
+     */
+    private $stageService;
+
+    /**
      * Stage Controller Class Constructor.
      *
      * @param Api\Stages\Repositories\StageRepository $stageRepository
+     * @param Api\Stages\Services\StageService $stageService
      */
-    public function __construct(StageRepository $stageRepository)
+    public function __construct(StageRepository $stageRepository, StageService $stageService)
     {
         $this->stageRepository = $stageRepository;
+        $this->stageService = $stageService;
     }
 
     /**
@@ -56,11 +64,11 @@ class StageController extends Controller
      * Get stage by id or slug name.
      *
      * @param mixed $identifier (default: null)
-     * @return \Illuminate\Http\JsonResponse
+     * @return Illuminate\Http\JsonResponse
      */
     public function show($identifier = null)
     {
-        $stage = $this->getRequestedStage($identifier);
+        $stage = $this->stageService->getRequestedStage($identifier);
         return new JsonResponse([
             'stage' => $stage
         ]);
@@ -78,7 +86,8 @@ class StageController extends Controller
         $slugify = new Slugify();
         $slug = $slugify->slugify($data['name']);
 
-        if ($this->stageRepository->getBySlug($slug)) {
+        $check = $this->stageService->getRequestedStage($slug, false);
+        if ($check) {
             throw new StageAlreadyExistsException();
         }
 
@@ -95,11 +104,11 @@ class StageController extends Controller
      *
      * @param mixed $identifier (default: null)
      * @param Illuminate\Http\Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return Illuminate\Http\JsonResponse
      */
     public function update($identifier = null, Request $request)
     {
-        $stage = $this->getRequestedStage($identifier);
+        $stage = $this->stageService->getRequestedStage($identifier);
         $data = $request->get('stage');
         $stageUpdated = $this->stageRepository->update($stage, $data);
 
@@ -116,11 +125,11 @@ class StageController extends Controller
      * Delete stage by id or slug name.
      *
      * @param mixed $identifier (default: null)
-     * @return \Illuminate\Http\JsonResponse
+     * @return Illuminate\Http\JsonResponse
      */
     public function delete($identifier = null)
     {
-        $stage = $this->getRequestedStage($identifier);
+        $stage = $this->stageService->getRequestedStage($identifier);
         $stageDeleted = $this->stageRepository->delete($stage);
 
         if (!$stageDeleted) {
@@ -132,23 +141,4 @@ class StageController extends Controller
         ]);
     }
 
-    /**
-     * Get requested stage by id or slug name.
-     *
-     * @param mixed $identifier
-     * @return Api\Stages\Models\Stage
-     * @return Api\Stages\Exceptions\StageNotFoundException;
-     */
-    private function getRequestedStage($identifier = null)
-    {
-        $stage = ( $identifier > 0 ?
-            $this->stageRepository->getById($identifier) :
-            $this->stageRepository->getBySlug($identifier)
-        );
-
-        if (is_null($stage)) {
-            throw new StageNotFoundException();
-        }
-        return $stage;
-    }
 }

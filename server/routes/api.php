@@ -71,31 +71,38 @@ $api->version('v1', function ($api) {
         $api->post('/roles', ['uses' => 'Api\Users\Controllers\RoleController@create', 'as' => 'api.roles.create']);
 
         /*
-        Customers
+        Persons
          */
-        $api->get('/customers', ['uses' => 'Api\Customers\Controllers\CustomerController@index', 'as' => 'api.customers.index']);
-        $api->get('/customers/{customerId}', ['uses' => 'Api\Customers\Controllers\CustomerController@show', 'as' => 'api.customers.show']);
-        $api->put('/customers/{customerId}', ['uses' => 'Api\Customers\Controllers\CustomerController@update', 'as' => 'api.customers.update']);
-        $api->delete('/customers/{customerId}', ['uses' => 'Api\Customers\Controllers\CustomerController@delete', 'as' => 'api.customers.delete']);
-        $api->post('/customers', ['uses' => 'Api\Customers\Controllers\CustomerController@create', 'as' => 'api.customers.create']);
+        $api->get('/persons', ['uses' => 'Api\Persons\Controllers\PersonController@index', 'as' => 'api.persons.index']);
+        $api->get('/persons/{personId}', ['uses' => 'Api\Persons\Controllers\PersonController@show', 'as' => 'api.persons.show']);
+        $api->put('/persons/{personId}', ['uses' => 'Api\Persons\Controllers\PersonController@update', 'as' => 'api.persons.update']);
+        $api->delete('/persons/{personId}', ['uses' => 'Api\Persons\Controllers\PersonController@delete', 'as' => 'api.persons.delete']);
+        $api->post('/persons', ['uses' => 'Api\Persons\Controllers\PersonController@create', 'as' => 'api.persons.create']);
 
         /*
-        Customer Custom Field
+        Person Custom Field
          */
-        $api->get('/customers/{customerId}/custom-fields', ['uses' => 'Api\Customers\Controllers\CustomFieldController@index', 'as' => 'api.customers.customfield.index']);
-        $api->get('/customers/{customerId}/custom-fields/{customFieldId}', ['uses' => 'Api\Customers\Controllers\CustomFieldController@show', 'as' => 'api.customers.customfield.show']);
-        $api->put('/customers/{customerId}/custom-fields/{customFieldId}', ['uses' => 'Api\Customers\Controllers\CustomFieldController@update', 'as' => 'api.customers.customfield.update']);
-        $api->delete('/customers/{customerId}/custom-fields/{customFieldId}', ['uses' => 'Api\Customers\Controllers\CustomFieldController@delete', 'as' => 'api.customers.customfield.delete']);
-        $api->post('/customers/{customerId}/custom-fields', ['uses' => 'Api\Customers\Controllers\CustomFieldController@create', 'as' => 'api.customers.customfield.create']);
+        $api->get('/persons/{personId}/custom-fields', ['uses' => 'Api\Persons\Controllers\CustomFieldController@index', 'as' => 'api.persons.customfield.index']);
+        $api->get('/persons/{personId}/custom-fields/{customFieldId}', ['uses' => 'Api\Persons\Controllers\CustomFieldController@show', 'as' => 'api.persons.customfield.show']);
+        $api->put('/persons/{personId}/custom-fields/{customFieldId}', ['uses' => 'Api\Persons\Controllers\CustomFieldController@update', 'as' => 'api.persons.customfield.update']);
+        $api->delete('/persons/{personId}/custom-fields/{customFieldId}', ['uses' => 'Api\Persons\Controllers\CustomFieldController@delete', 'as' => 'api.persons.customfield.delete']);
+        $api->post('/persons/{personId}/custom-fields', ['uses' => 'Api\Persons\Controllers\CustomFieldController@create', 'as' => 'api.persons.customfield.create']);
 
         /*
-        Customer Note
+        Person Note
          */
-        $api->get('/customers/{customerId}/notes', ['uses' => 'Api\Customers\Controllers\NoteController@index', 'as' => 'api.customers.note.index']);
-        $api->get('/customers/{customerId}/notes/{noteId}', ['uses' => 'Api\Customers\Controllers\NoteController@show', 'as' => 'api.customers.note.show']);
-        $api->put('/customers/{customerId}/notes/{noteId}', ['uses' => 'Api\Customers\Controllers\NoteController@update', 'as' => 'api.customers.note.update']);
-        $api->delete('/customers/{customerId}/notes/{noteId}', ['uses' => 'Api\Customers\Controllers\NoteController@delete', 'as' => 'api.customers.note.delete']);
-        $api->post('/customers/{customerId}/notes', ['uses' => 'Api\Customers\Controllers\NoteController@create', 'as' => 'api.customers.note.create']);
+        $api->get('/persons/{personId}/notes', ['uses' => 'Api\Persons\Controllers\NoteController@index', 'as' => 'api.persons.note.index']);
+        $api->get('/persons/{personId}/notes/{noteId}', ['uses' => 'Api\Persons\Controllers\NoteController@show', 'as' => 'api.persons.note.show']);
+        $api->put('/persons/{personId}/notes/{noteId}', ['uses' => 'Api\Persons\Controllers\NoteController@update', 'as' => 'api.persons.note.update']);
+        $api->delete('/persons/{personId}/notes/{noteId}', ['uses' => 'Api\Persons\Controllers\NoteController@delete', 'as' => 'api.persons.note.delete']);
+        $api->post('/persons/{personId}/notes', ['uses' => 'Api\Persons\Controllers\NoteController@create', 'as' => 'api.persons.note.create']);
+
+        /*
+        Person Tag
+         */
+        $api->get('/persons/{personId}/tags', ['uses' => 'Api\Persons\Controllers\TagController@index', 'as' => 'api.persons.tag.index']);
+        $api->delete('/persons/{personId}/tags/{tagId}', ['uses' => 'Api\Persons\Controllers\TagController@delete', 'as' => 'api.persons.tag.delete']);
+        $api->post('/persons/{personId}/tags', ['uses' => 'Api\Persons\Controllers\TagController@create', 'as' => 'api.persons.tag.create']);
 
         /*
         Tags

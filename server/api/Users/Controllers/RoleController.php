@@ -7,7 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Api\Users\Repositories\RoleRepository;
-use Api\Users\Exceptions\RoleNotFoundException;
+use Api\Users\Services\RoleService;
 use Api\Users\Exceptions\RoleAlreadyExistsException;
 use Cocur\Slugify\Slugify;
 
@@ -25,13 +25,21 @@ class RoleController extends Controller
     private $roleRepository;
 
     /**
+     *
+     * @var Api\Users\Services\RoleService
+     */
+    private $roleService;
+
+    /**
      * Role Controller Class Constructor.
      *
      * @param Api\Users\Repositories\RoleRepository $roleRepository
+     * @param Api\Users\Services\RoleService $roleService
      */
-    public function __construct(RoleRepository $roleRepository)
+    public function __construct(RoleRepository $roleRepository, RoleService $roleService)
     {
         $this->roleRepository = $roleRepository;
+        $this->roleService = $roleService;
     }
 
     /**
@@ -60,7 +68,7 @@ class RoleController extends Controller
      */
     public function show($identifier = null)
     {
-        $role = $this->getRequestedRole($identifier);
+        $role = $this->roleService->getRequestedRole($identifier);
         return new JsonResponse([
             'role' => $role
         ]);
@@ -78,7 +86,8 @@ class RoleController extends Controller
         $slugify = new Slugify();
         $slug = $slugify->slugify($data['name']);
 
-        if ($this->roleRepository->getBySlug($slug)) {
+        $check = $this->roleService->getRequestedRole($slug, false);
+        if ($check) {
             throw new RoleAlreadyExistsException();
         }
 
@@ -99,7 +108,7 @@ class RoleController extends Controller
      */
     public function update($identifier = null, Request $request)
     {
-        $role = $this->getRequestedRole($identifier);
+        $role = $this->roleService->getRequestedRole($identifier);
         $data = $request->get('role');
 
         if (isset($data['slug'])) {
@@ -125,7 +134,7 @@ class RoleController extends Controller
      */
     public function delete($identifier = null)
     {
-        $role = $this->getRequestedRole($identifier);
+        $role = $this->roleService->getRequestedRole($identifier);
         $roleDeleted = $this->roleRepository->delete($role);
 
         if (!$roleDeleted) {
@@ -137,24 +146,4 @@ class RoleController extends Controller
         ]);
     }
 
-    /**
-     * Get requested role by id or slug.
-     *
-     * @param mixed $identifier
-     * @return Api\Users\Models\Role
-     * @return Api\Users\Exceptions\RoleNotFoundException;
-     */
-    private function getRequestedRole($identifier = null)
-    {
-
-        $role = ( $identifier > 0 ?
-            $this->roleRepository->getById($identifier) :
-            $this->roleRepository->getBySlug($identifier)
-        );
-
-        if (is_null($role)) {
-            throw new RoleNotFoundException();
-        }
-        return $role;
-    }
 }

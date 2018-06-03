@@ -7,7 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Api\Tags\Repositories\TagRepository;
-use Api\Tags\Exceptions\TagNotFoundException;
+use Api\Tags\Services\TagService;
 use Api\Tags\Exceptions\TagAlreadyExistsException;
 use Cocur\Slugify\Slugify;
 
@@ -25,13 +25,21 @@ class TagController extends Controller
     private $tagRepository;
 
     /**
+     *
+     * @var Api\Tags\Services\TagService
+     */
+    private $tagService;
+
+    /**
      * Tag Controller Class Constructor.
      *
      * @param Api\Tags\Repositories\TagRepository $tagRepository
+     * @param Api\Tags\Services\TagService $tagService
      */
-    public function __construct(TagRepository $tagRepository)
+    public function __construct(TagRepository $tagRepository, TagService $tagService)
     {
         $this->tagRepository = $tagRepository;
+        $this->tagService = $tagService;
     }
 
     /**
@@ -60,7 +68,7 @@ class TagController extends Controller
      */
     public function show($identifier = null)
     {
-        $tag = $this->getRequestedTag($identifier);
+        $tag = $this->tagService->getRequestedTag($identifier);
         return new JsonResponse([
             'tag' => $tag
         ]);
@@ -78,7 +86,8 @@ class TagController extends Controller
         $slugify = new Slugify();
         $slug = $slugify->slugify($data['name']);
 
-        if ($this->tagRepository->getBySlug($slug)) {
+        $check = $this->tagService->getRequestedTag($slug, false);
+        if ($check) {
             throw new TagAlreadyExistsException();
         }
 
@@ -99,7 +108,7 @@ class TagController extends Controller
      */
     public function update($identifier = null, Request $request)
     {
-        $tag = $this->getRequestedTag($identifier);
+        $tag = $this->tagService->getRequestedTag($identifier);
         $data = $request->get('tag');
         $tagUpdated = $this->tagRepository->update($tag, $data);
 
@@ -120,7 +129,7 @@ class TagController extends Controller
      */
     public function delete($identifier = null)
     {
-        $tag = $this->getRequestedTag($identifier);
+        $tag = $this->tagService->getRequestedTag($identifier);
         $tagDeleted = $this->tagRepository->delete($tag);
 
         if (!$tagDeleted) {
@@ -132,23 +141,4 @@ class TagController extends Controller
         ]);
     }
 
-    /**
-     * Get requested tag by id or slug name.
-     *
-     * @param mixed $identifier
-     * @return Api\Tags\Models\Tag
-     * @return Api\Tags\Exceptions\TagNotFoundException;
-     */
-    private function getRequestedTag($identifier = null)
-    {
-        $tag = ( $identifier > 0 ?
-            $this->tagRepository->getById($identifier) :
-            $this->tagRepository->getBySlug($identifier)
-        );
-
-        if (is_null($tag)) {
-            throw new TagNotFoundException();
-        }
-        return $tag;
-    }
 }

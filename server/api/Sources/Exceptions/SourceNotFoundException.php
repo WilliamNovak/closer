@@ -14,7 +14,7 @@ class SourceNotFoundException extends NotFoundHttpException
      * SourceNotFoundException Class Constructor.
      * @param string $message
      */
-    public function __construct($message = 'Etiqueta não encontrada.')
+    public function __construct($message = 'Origem não encontrada.')
     {
         parent::__construct($message);
     }

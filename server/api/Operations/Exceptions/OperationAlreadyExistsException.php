@@ -5,7 +5,7 @@ namespace Api\Operations\Exceptions;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Operation Not Found Exception Class.
+ * Operation Already Exists Exception Class.
  *
  */
 class OperationAlreadyExistsException extends NotFoundHttpException

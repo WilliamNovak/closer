@@ -14,7 +14,7 @@ class OperationNotFoundException extends NotFoundHttpException
      * OperationNotFoundException Class Constructor.
      * @param string $message
      */
-    public function __construct($message = 'Modo de operação não encontrado.')
+    public function __construct($message = 'Modo de operação não encontrada.')
     {
         parent::__construct($message);
     }

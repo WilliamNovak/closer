@@ -17,8 +17,8 @@ class CreateCustomFieldsTable extends Migration
             $table->string('name');
             $table->string('value');
             $table->string('type', 48);
-            $table->integer('customer_id')->unsigned()->index();
-            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->integer('person_id')->unsigned()->index();
+            $table->foreign('person_id')->references('id')->on('persons');
             $table->timestamps();
             $table->softDeletes();
         });

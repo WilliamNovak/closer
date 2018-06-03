@@ -1,0 +1,1911 @@
+{
+	"info": {
+		"_postman_id": "b624e144-5d97-4a46-bac4-74b4dfc6897f",
+		"name": "Closer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Persons",
+			"description": "",
+			"item": [
+				{
+					"name": "Custom Fields",
+					"description": "",
+					"item": [
+						{
+							"name": "Create custom field",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"customField\": {\n\t\t\"name\": \"Teste\",\n\t\t\"type\": \"text\",\n\t\t\"value\": \"Teste\"\n\t}\n}"
+								},
+								"url": {
+									"raw": "{{LOCAL}}persons/1/custom-fields",
+									"host": [
+										"{{LOCAL}}persons"
+									],
+									"path": [
+										"1",
+										"custom-fields"
+									]
+								},
+								"description": "sdsd"
+							},
+							"response": []
+						},
+						{
+							"name": "Get all custom fields by person",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{LOCAL}}persons/1/custom-fields",
+									"host": [
+										"{{LOCAL}}persons"
+									],
+									"path": [
+										"1",
+										"custom-fields"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get custom field by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{LOCAL}}persons/1/custom-fields/1",
+									"host": [
+										"{{LOCAL}}persons"
+									],
+									"path": [
+										"1",
+										"custom-fields",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update custom field",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"customField\": {\n\t\t\"name\": \"Teste\",\n\t\t\"type\": \"text\",\n\t\t\"value\": \"Teste\"\n\t}\n}"
+								},
+								"url": {
+									"raw": "{{LOCAL}}persons/1/custom-fields/1",
+									"host": [
+										"{{LOCAL}}persons"
+									],
+									"path": [
+										"1",
+										"custom-fields",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete custom field",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{LOCAL}}persons/1/custom-fields/8",
+									"host": [
+										"{{LOCAL}}persons"
+									],
+									"path": [
+										"1",
+										"custom-fields",
+										"8"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Notes",
+					"description": "",
+					"item": [
+						{
+							"name": "Create note",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"note\": {\n\t\t\"text\": \"teste\",\n\t\t\"color\": \"blue\"\n\t}\n}"
+								},
+								"url": {
+									"raw": "{{LOCAL}}persons/1/notes",
+									"host": [
+										"{{LOCAL}}persons"
+									],
+									"path": [
+										"1",
+										"notes"
+									]
+								},
+								"description": "sdsd"
+							},
+							"response": []
+						},
+						{
+							"name": "Get all notes by person",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{LOCAL}}persons/1/notes",
+									"host": [
+										"{{LOCAL}}persons"
+									],
+									"path": [
+										"1",
+										"notes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get note by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{LOCAL}}persons/1/notes/1",
+									"host": [
+										"{{LOCAL}}persons"
+									],
+									"path": [
+										"1",
+										"notes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update note",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"note\": {\n\t\t\"text\": \"test test test\",\n\t\t\"color\": \"red\"\n\t}\n}"
+								},
+								"url": {
+									"raw": "{{LOCAL}}persons/1/notes/1",
+									"host": [
+										"{{LOCAL}}persons"
+									],
+									"path": [
+										"1",
+										"notes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete note",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{LOCAL}}persons/1/notes/8",
+									"host": [
+										"{{LOCAL}}persons"
+									],
+									"path": [
+										"1",
+										"notes",
+										"8"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Tag",
+					"description": "",
+					"item": [
+						{
+							"name": "Add tag on person",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"tag\": {\n\t\t\"tag_id\": 4\n\t}\n}"
+								},
+								"url": {
+									"raw": "{{LOCAL}}persons/1/tags",
+									"host": [
+										"{{LOCAL}}persons"
+									],
+									"path": [
+										"1",
+										"tags"
+									]
+								},
+								"description": "sdsd"
+							},
+							"response": []
+						},
+						{
+							"name": "Get all tags by person",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{LOCAL}}persons/1/tags",
+									"host": [
+										"{{LOCAL}}persons"
+									],
+									"path": [
+										"1",
+										"tags"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete tag from person",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "{{LOCAL}}persons/1/tags/4",
+									"host": [
+										"{{LOCAL}}persons"
+									],
+									"path": [
+										"1",
+										"tags",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Create person",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"person\": {\n\t\t\"name\": \"William Novak\",\n\t\t\"source_id\": 1\n\t}\n}"
+						},
+						"url": {
+							"raw": "api.salesmentor/v1/persons",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"persons"
+							]
+						},
+						"description": "sdsd"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all persons",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/persons",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"persons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get person by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/persons/1",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"persons",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update person",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"person\": {\n\t\t\"name\": \"William Novak\",\n\t\t\"source_id\": 2\n\t}\n}"
+						},
+						"url": {
+							"raw": "api.salesmentor/v1/persons/2",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"persons",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete person",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/persons/1",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"persons",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"description": "",
+			"item": [
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\": {\n\t\t\"name\": \"William Novak\",\n\t\t\"email\": \"williamnvk@gmail.com\",\n\t\t\"password\": \"123456\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "api.salesmentor/v1/users",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"users"
+							]
+						},
+						"description": "sdsd"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6XC9cL2FwaS5zYWxlc21lbnRvclwvdjFcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNTI3NDU5MzE3LCJleHAiOjE1Mjc0NjI5MTcsIm5iZiI6MTUyNzQ1OTMxNywianRpIjoiUW1Ebm43Rm9BUVFxTmNQayJ9.oKVzgVAim3N26-sbEojQBoFYemTkgaqx91vzhT-nl_Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/users",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/users/1",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\": {\n\t\t\"name\": \"William Novak\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "api.salesmentor/v1/users/2",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user role",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"role\": {\n\t\t\"slug\": \"master\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "api.salesmentor/v1/users/1/roles",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"users",
+								"1",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/users/1",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Collections",
+			"description": "",
+			"item": [
+				{
+					"name": "Create collection",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"collection\": {\n\t\t\"name\": \"Collection name\",\n\t\t\"description\": \"Collection description\",\n\t\t\"is_private\": 1,\n\t\t\"is_active\": 1\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{LOCAL}}collections",
+							"host": [
+								"{{LOCAL}}collections"
+							]
+						},
+						"description": "sdsd"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all collections",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{LOCAL}}collections",
+							"host": [
+								"{{LOCAL}}collections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get collection by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{LOCAL}}collections/1",
+							"host": [
+								"{{LOCAL}}collections"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update collection",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"collection\": {\n\t\t\"name\": \"Collection name\",\n\t\t\"description\": \"Collection description\",\n\t\t\"is_private\": 1,\n\t\t\"is_active\": 1\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{LOCAL}}collections/1",
+							"host": [
+								"{{LOCAL}}collections"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete collection",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{LOCAL}}collections/1",
+							"host": [
+								"{{LOCAL}}collections"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Roles",
+			"description": "",
+			"item": [
+				{
+					"name": "Create user role",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"role\": {\n\t\t\"name\": \"ssss\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "api.salesmentor/v1/roles",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"roles"
+							]
+						},
+						"description": "sdsd"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all roles",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/roles",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get role by id or slug name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/roles/master",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"roles",
+								"master"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update role",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"role\": {\n\t\t\"name\": \"master of pupets\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "api.salesmentor/v1/roles/master",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"roles",
+								"master"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete role",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/roles/1",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"roles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tags",
+			"description": "",
+			"item": [
+				{
+					"name": "Create tag",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"tag\": {\n\t\t\"name\": \"ssss\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "api.salesmentor/v1/tags",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all tags",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/tags",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get tag by id or slug name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/tags/1",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"tags",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update tag",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"tag\": {\n\t\t\"name\": \"master of pupets\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "api.salesmentor/v1/tags/1",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"tags",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete tag",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/tags/1",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"tags",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sources",
+			"description": "",
+			"item": [
+				{
+					"name": "Create source",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"source\": {\n\t\t\"name\": \"ssss\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "api.salesmentor/v1/sources",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"sources"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all sources",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/sources",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"sources"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get source by id or slug name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/sources/1",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"sources",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update source",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg1NzYwMywiZXhwIjoxNTI3ODYxMjAzLCJuYmYiOjE1Mjc4NTc2MDMsImp0aSI6InMxMU5BdTV0dDFJN3A2ckcifQ.QSsYgzCI4_DTcAN5VneZjy4mS_uNzuxXR9rGfhhTviQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"source\": {\n\t\t\"name\": \"master of pupets\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "api.salesmentor/v1/sources/1",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"sources",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete source",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/sources/1",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"sources",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Stages",
+			"description": "",
+			"item": [
+				{
+					"name": "Create stage",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"stage\": {\n\t\t\"name\": \"sssss\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "api.salesmentor/v1/stages",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"stages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all stage",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/stages",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"stages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get stage by id or slug name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/stages/1",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"stages",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update stage",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"stage\": {\n\t\t\"name\": \"master of pupets\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "api.salesmentor/v1/stages/1",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"stages",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete stage",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/stages/1",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"stages",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Operations",
+			"description": "",
+			"item": [
+				{
+					"name": "Create operation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"operation\": {\n\t\t\"name\": \"ssss\",\n\t\t\"description\": \"ssss\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "api.salesmentor/v1/operations",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"operations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all operations",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/operations",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"operations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get operation by id or slug name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/operations/1",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"operations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update operation",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"operation\": {\n\t\t\"name\": \"master of pupets\",\n\t\t\"description\": \"default\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "api.salesmentor/v1/operations/1",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"operations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete operation",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/operations/1",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"operations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"description": "",
+			"item": [
+				{
+					"name": "Refresh current token",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/auth/refresh",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get current user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6XC9cL2FwaS5zYWxlc21lbnRvclwvdjFcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNTI3NDU5MzE3LCJleHAiOjE1Mjc0NjI5MTcsIm5iZiI6MTUyNzQ1OTMxNywianRpIjoiUW1Ebm43Rm9BUVFxTmNQayJ9.oKVzgVAim3N26-sbEojQBoFYemTkgaqx91vzhT-nl_Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/auth/user",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Have token",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Move token to black list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6XC9cL2FwaS5zYWxlc21lbnRvclwvdjFcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNTI3NDU5MjQwLCJleHAiOjE1Mjc0NjI4NDAsIm5iZiI6MTUyNzQ1OTI0MCwianRpIjoiNGZyWGtna1RJemRHY1ZhZiJ9.n9C-L667sI93SM07hzyqlEnSmd7q4vWfo5tC1qZCCiA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6Ly9hcGkuc2FsZXNtZW50b3IvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTUyNzg2MjExMCwiZXhwIjoxNTMwNDU0MTEwLCJuYmYiOjE1Mjc4NjIxMTAsImp0aSI6ImFYV0pjc1l2NlVYVEp1ZDYifQ.dhUAQEqEzq6IFouPUUplJ4880s4PQl9jM-QCfFPYLis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "api.salesmentor/v1/auth/invalidate",
+							"host": [
+								"api",
+								"salesmentor"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"invalidate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sign in",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6XC9cL2FwaS5zYWxlc21lbnRvclwvdjFcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNTI3NDU5MzE3LCJleHAiOjE1Mjc0NjI5MTcsIm5iZiI6MTUyNzQ1OTMxNywianRpIjoiUW1Ebm43Rm9BUVFxTmNQayJ9.oKVzgVAim3N26-sbEojQBoFYemTkgaqx91vzhT-nl_Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"williamnvk@gmail.com\",\n\t\"password\": \"123456\"\n}"
+				},
+				"url": {
+					"raw": "api.salesmentor/v1/auth/login",
+					"host": [
+						"api",
+						"salesmentor"
+					],
+					"path": [
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check available e-mail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "api.salesmentor/v1/users/williamnvk@gmail.com/check-email",
+					"host": [
+						"api",
+						"salesmentor"
+					],
+					"path": [
+						"v1",
+						"users",
+						"williamnvk@gmail.com",
+						"check-email"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -7,7 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Api\Operations\Repositories\OperationRepository;
-use Api\Operations\Exceptions\OperationNotFoundException;
+use Api\Operations\Services\OperationService;
 use Api\Operations\Exceptions\OperationAlreadyExistsException;
 use Cocur\Slugify\Slugify;
 
@@ -25,13 +25,21 @@ class OperationController extends Controller
     private $operationRepository;
 
     /**
+     *
+     * @var Api\Operations\Services\OperationService
+     */
+    private $operationService;
+
+    /**
      * Operation Controller Class Constructor.
      *
      * @param Api\Operations\Repositories\OperationRepository $operationRepository
+     * @param Api\Operations\Services\OperationService $operationService
      */
-    public function __construct(OperationRepository $operationRepository)
+    public function __construct(OperationRepository $operationRepository, OperationService $operationService)
     {
         $this->operationRepository = $operationRepository;
+        $this->operationService = $operationService;
     }
 
     /**
@@ -56,11 +64,11 @@ class OperationController extends Controller
      * Get operation by id or slug name.
      *
      * @param mixed $identifier (default: null)
-     * @return \Illuminate\Http\JsonResponse
+     * @return Illuminate\Http\JsonResponse
      */
     public function show($identifier = null)
     {
-        $operation = $this->getRequestedOperation($identifier);
+        $operation = $this->operationService->getRequestedOperation($identifier);
         return new JsonResponse([
             'operation' => $operation
         ]);
@@ -78,7 +86,8 @@ class OperationController extends Controller
         $slugify = new Slugify();
         $slug = $slugify->slugify($data['name']);
 
-        if ($this->operationRepository->getBySlug($slug)) {
+        $check = $this->operationService->getRequestedOperation($slug, false);
+        if ($check) {
             throw new OperationAlreadyExistsException();
         }
 
@@ -95,11 +104,11 @@ class OperationController extends Controller
      *
      * @param mixed $identifier (default: null)
      * @param Illuminate\Http\Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return Illuminate\Http\JsonResponse
      */
     public function update($identifier = null, Request $request)
     {
-        $operation = $this->getRequestedOperation($identifier);
+        $operation = $this->operationService->getRequestedOperation($identifier);
         $data = $request->get('operation');
         $operationUpdated = $this->operationRepository->update($operation, $data);
 
@@ -116,11 +125,11 @@ class OperationController extends Controller
      * Delete operation by id or slug name.
      *
      * @param mixed $identifier (default: null)
-     * @return \Illuminate\Http\JsonResponse
+     * @return Illuminate\Http\JsonResponse
      */
     public function delete($identifier = null)
     {
-        $operation = $this->getRequestedOperation($identifier);
+        $operation = $this->operationService->getRequestedOperation($identifier);
         $operationDeleted = $this->operationRepository->delete($operation);
 
         if (!$operationDeleted) {
@@ -132,23 +141,4 @@ class OperationController extends Controller
         ]);
     }
 
-    /**
-     * Get requested operation by id or slug name.
-     *
-     * @param mixed $identifier
-     * @return Api\Operations\Models\Operation
-     * @return Api\Operations\Exceptions\OperationNotFoundException;
-     */
-    private function getRequestedOperation($identifier = null)
-    {
-        $operation = ( $identifier > 0 ?
-            $this->operationRepository->getById($identifier) :
-            $this->operationRepository->getBySlug($identifier)
-        );
-
-        if (is_null($operation)) {
-            throw new OperationNotFoundException();
-        }
-        return $operation;
-    }
 }

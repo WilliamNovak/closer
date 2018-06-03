@@ -16,8 +16,8 @@ class CreateNotesTable extends Migration
             $table->increments('id');
             $table->text('text');
             $table->string('color', '16')->nullable();
-            $table->integer('customer_id')->unsigned()->index();
-            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->integer('person_id')->unsigned()->index();
+            $table->foreign('person_id')->references('id')->on('persons');
             $table->integer('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

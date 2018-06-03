@@ -14,7 +14,7 @@ class StageNotFoundException extends NotFoundHttpException
      * StageNotFoundException Class Constructor.
      * @param string $message
      */
-    public function __construct($message = 'Etiqueta não encontrada.')
+    public function __construct($message = 'Estágio não encontrada.')
     {
         parent::__construct($message);
     }

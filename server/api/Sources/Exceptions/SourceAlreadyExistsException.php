@@ -14,7 +14,7 @@ class SourceAlreadyExistsException extends NotFoundHttpException
      * SourceNotFoundException Class Constructor.
      * @param string $message
      */
-    public function __construct($message = 'Etiqueta já existe.')
+    public function __construct($message = 'Origem já existe.')
     {
         parent::__construct($message);
     }

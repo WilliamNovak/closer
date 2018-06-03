@@ -7,7 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Api\Sources\Repositories\SourceRepository;
-use Api\Sources\Exceptions\SourceNotFoundException;
+use Api\Sources\Services\SourceService;
 use Api\Sources\Exceptions\SourceAlreadyExistsException;
 use Cocur\Slugify\Slugify;
 
@@ -25,13 +25,21 @@ class SourceController extends Controller
     private $sourceRepository;
 
     /**
+     *
+     * @var Api\Sources\Services\SourceService
+     */
+    private $sourceService;
+
+    /**
      * Source Controller Class Constructor.
      *
      * @param Api\Sources\Repositories\SourceRepository $sourceRepository
+     * @param Api\Sources\Services\SourceService $sourceService
      */
-    public function __construct(SourceRepository $sourceRepository)
+    public function __construct(SourceRepository $sourceRepository, SourceService $sourceService)
     {
         $this->sourceRepository = $sourceRepository;
+        $this->sourceService = $sourceService;
     }
 
     /**
@@ -56,11 +64,11 @@ class SourceController extends Controller
      * Get source by id or slug name.
      *
      * @param mixed $identifier (default: null)
-     * @return \Illuminate\Http\JsonResponse
+     * @return Illuminate\Http\JsonResponse
      */
     public function show($identifier = null)
     {
-        $source = $this->getRequestedSource($identifier);
+        $source = $this->sourceService->getRequestedSource($identifier);
         return new JsonResponse([
             'source' => $source
         ]);
@@ -78,7 +86,8 @@ class SourceController extends Controller
         $slugify = new Slugify();
         $slug = $slugify->slugify($data['name']);
 
-        if ($this->sourceRepository->getBySlug($slug)) {
+        $check = $this->sourceService->getRequestedSource($slug, false);
+        if ($check) {
             throw new SourceAlreadyExistsException();
         }
 
@@ -95,11 +104,11 @@ class SourceController extends Controller
      *
      * @param mixed $identifier (default: null)
      * @param Illuminate\Http\Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return Illuminate\Http\JsonResponse
      */
     public function update($identifier = null, Request $request)
     {
-        $source = $this->getRequestedSource($identifier);
+        $source = $this->sourceService->getRequestedSource($identifier);
         $data = $request->get('source');
         $sourceUpdated = $this->sourceRepository->update($source, $data);
 
@@ -116,11 +125,11 @@ class SourceController extends Controller
      * Delete source by id or slug name.
      *
      * @param mixed $identifier (default: null)
-     * @return \Illuminate\Http\JsonResponse
+     * @return Illuminate\Http\JsonResponse
      */
     public function delete($identifier = null)
     {
-        $source = $this->getRequestedSource($identifier);
+        $source = $this->sourceService->getRequestedSource($identifier);
         $sourceDeleted = $this->sourceRepository->delete($source);
 
         if (!$sourceDeleted) {
@@ -132,23 +141,4 @@ class SourceController extends Controller
         ]);
     }
 
-    /**
-     * Get requested source by id or slug name.
-     *
-     * @param mixed $identifier
-     * @return Api\Sources\Models\Source
-     * @return Api\Sources\Exceptions\SourceNotFoundException;
-     */
-    private function getRequestedSource($identifier = null)
-    {
-        $source = ( $identifier > 0 ?
-            $this->sourceRepository->getById($identifier) :
-            $this->sourceRepository->getBySlug($identifier)
-        );
-
-        if (is_null($source)) {
-            throw new SourceNotFoundException();
-        }
-        return $source;
-    }
 }
