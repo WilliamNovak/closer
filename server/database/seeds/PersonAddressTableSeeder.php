@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class AddressTableSeeder extends Seeder
+class PersonAddressTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class AddressTableSeeder extends Seeder
     public function run()
     {
         for($i = 1; $i <= 5; $i++) {
-            DB::table('addresses')->insert([
+            DB::table('person_addresses')->insert([
                 'person_id' => $i,
                 'street' => 'Rua Vicente Machado',
                 'street_number' => '15',

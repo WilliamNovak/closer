@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSocialNetworksTable extends Migration
+class CreateSocialsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateSocialNetworksTable extends Migration
      */
     public function up()
     {
-        Schema::create('social_networks', function (Blueprint $table) {
+        Schema::create('socials', function (Blueprint $table) {
             $table->increments('id');
             $table->string('slug', '20');
             $table->string('name', '48');

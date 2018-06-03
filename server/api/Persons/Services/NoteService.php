@@ -7,7 +7,7 @@ use Api\Persons\Repositories\NoteRepository;
 use Api\Persons\Exceptions\NoteNotFoundException;
 
 /**
- * Custom Field Service.
+ * Person Notes Service.
  *
  */
 class NoteService extends Service
@@ -20,7 +20,7 @@ class NoteService extends Service
     private $noteRepository;
 
     /**
-     * Custom Field Service Class Constructor.
+     * Person Notes Service Class Constructor.
      *
      * @param Api\Persons\Repositories\NoteRepository $noteRepository
      */

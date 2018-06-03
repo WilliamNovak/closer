@@ -5,11 +5,13 @@ namespace Api\Persons\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Api\Persons\Models\Person;
-use Api\SocialNetworks\Models\SocialNetwork;
+use Api\Socials\Models\Social;
 
 class Socials extends Model {
 
     use SoftDeletes;
+
+    protected $table = 'person_socials';
 
     /**
      * The attributes that are mass assignable.
@@ -17,7 +19,7 @@ class Socials extends Model {
      * @var array
      */
     protected $fillable = [
-        'value', 'social_network_id', 'person_id'
+        'value', 'social_id', 'person_id'
     ];
 
     /**
@@ -26,7 +28,7 @@ class Socials extends Model {
      * @var array
      */
     protected $hidden = [
-        'social_network_id', 'person_id',
+        'social_id', 'person_id',
         'deleted_at'
     ];
 
@@ -35,9 +37,9 @@ class Socials extends Model {
         return $this->belongsTo(Person::class, 'person_id');
     }
 
-    public function network()
+    public function social()
     {
-        return $this->belongsTo(SocialNetwork::class, 'social_network_id');
+        return $this->belongsTo(Social::class, 'social_id');
     }
 
 }

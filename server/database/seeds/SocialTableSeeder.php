@@ -11,25 +11,69 @@ class SocialTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 1; $i <= 5; $i++) {
-            for($x = 1; $x <= 5; $x++) {
-                DB::table('socials')->insert([
-                    'person_id' => $i,
-                    'social_network_id' => $x,
-                    'value' => $this->generateRandomString((20 - $x) + $i)
-                ]);
-            }
-        }
+        DB::table('socials')->insert([
+            'slug' => 'facebook',
+            'name' => 'facebook',
+            'description' => '',
+            'color' => '#3b5998',
+            'icon' => 'facebook'
+        ]);
 
-    }
+        DB::table('socials')->insert([
+            'slug' => 'instagram',
+            'name' => 'instagram',
+            'description' => '',
+            'color' => '#cd486b',
+            'icon' => 'instagram'
+        ]);
 
-    private function generateRandomString($length = 10) {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
-        }
-        return $randomString;
+        DB::table('socials')->insert([
+            'slug' => 'twitter',
+            'name' => 'twitter',
+            'description' => '',
+            'color' => '#55acee',
+            'icon' => 'twitter'
+        ]);
+
+        DB::table('socials')->insert([
+            'slug' => 'skype',
+            'name' => 'skype',
+            'description' => '',
+            'color' => '#00aff0',
+            'icon' => 'skype'
+        ]);
+
+        DB::table('socials')->insert([
+            'slug' => 'youtube',
+            'name' => 'youtube',
+            'description' => '',
+            'color' => '#cd201f',
+            'icon' => 'youtube'
+        ]);
+
+        DB::table('socials')->insert([
+            'slug' => 'dribble',
+            'name' => 'dribble',
+            'description' => '',
+            'color' => '#ea4c89',
+            'icon' => 'dribble'
+        ]);
+
+        DB::table('socials')->insert([
+            'slug' => 'behance',
+            'name' => 'behance',
+            'description' => '',
+            'color' => '#131418',
+            'icon' => 'behance'
+        ]);
+
+        DB::table('socials')->insert([
+            'slug' => 'slack',
+            'name' => 'slack',
+            'description' => '',
+            'color' => '#3aaf85',
+            'icon' => 'slack'
+        ]);
+
     }
 }

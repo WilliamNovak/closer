@@ -1,17 +1,17 @@
 <?php
 
-namespace Api\SocialNetworks\Exceptions;
+namespace Api\Socials\Exceptions;
 
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Social Network Already Exists Exception Class.
+ * Social Already Exists Exception Class.
  *
  */
-class SocialNetworkAlreadyExistsException extends NotFoundHttpException
+class SocialAlreadyExistsException extends NotFoundHttpException
 {
     /**
-     * SocialNetworkNotFoundException Class Constructor.
+     * SocialNotFoundException Class Constructor.
      * @param string $message
      */
     public function __construct($message = 'Rede social já existe.')

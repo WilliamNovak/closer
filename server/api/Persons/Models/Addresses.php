@@ -10,13 +10,18 @@ class Addresses extends Model {
 
     use SoftDeletes;
 
+    protected $table = "person_addresses";
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'street', 'street_number', 'complement', 'neighborhood', 'city_name', 'state_code', 'person_id'
+        'street', 'street_number',
+        'complement', 'neighborhood',
+        'city_name', 'state_code',
+        'person_id'
     ];
 
     /**

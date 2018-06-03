@@ -8,6 +8,7 @@ use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Api\Persons\Repositories\PersonRepository;
 use Api\Persons\Services\PersonService;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 /**
  * Person Controller.
@@ -70,9 +71,11 @@ class PersonController extends Controller
         $source = $person->source; unset($person->source);
         $addresses = $person->addresses;
         $socials = $person->socials;
+        $owner = $person->owner; unset($person->owner);
         $tags = $person->tags;
         $response = ['person' => $person];
         $response['person']['source'] = ['id' => $source->id, 'name' => $source->name];
+        $response['person']['owner'] = ['id' => $owner->id, 'name' => $owner->name];
         return new JsonResponse($response);
     }
 
@@ -85,6 +88,7 @@ class PersonController extends Controller
     public function create(Request $request)
     {
         $data = $request->get('person');
+        $data['user_id'] = JWTAuth::parseToken()->authenticate()->id;
         $person = $this->personRepository->create($data);
         $source = $person->source; unset($person->source);
         $response = ['person' => $person];

@@ -1,17 +1,17 @@
 <?php
 
-namespace Api\SocialNetworks\Exceptions;
+namespace Api\Socials\Exceptions;
 
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Social Network Not Found Exception Class.
+ * Social Not Found Exception Class.
  *
  */
-class SocialNetworkNotFoundException extends NotFoundHttpException
+class SocialNotFoundException extends NotFoundHttpException
 {
     /**
-     * SocialNetworkNotFoundException Class Constructor.
+     * SocialNotFoundException Class Constructor.
      * @param string $message
      */
     public function __construct($message = 'Rede social não encontrada.')

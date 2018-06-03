@@ -1,11 +1,11 @@
 <?php
 
-namespace Api\SocialNetworks\Models;
+namespace Api\Socials\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class SocialNetwork extends Model {
+class Social extends Model {
 
     use SoftDeletes;
 
@@ -17,7 +17,7 @@ class SocialNetwork extends Model {
      * @var array
      */
     protected $fillable = [
-        'slug', 'name', 'color', 'description'
+        'slug', 'name', 'description', 'color', 'icon'
     ];
 
     /**

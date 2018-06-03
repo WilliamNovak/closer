@@ -98,6 +98,15 @@ $api->version('v1', function ($api) {
         $api->post('/persons/{personId}/notes', ['uses' => 'Api\Persons\Controllers\NoteController@create', 'as' => 'api.persons.note.create']);
 
         /*
+        Person Social
+         */
+        $api->get('/persons/{personId}/socials', ['uses' => 'Api\Persons\Controllers\SocialController@index', 'as' => 'api.persons.social.index']);
+        $api->get('/persons/{personId}/socials/{socialId}', ['uses' => 'Api\Persons\Controllers\SocialController@show', 'as' => 'api.persons.social.show']);
+        $api->put('/persons/{personId}/socials/{socialId}', ['uses' => 'Api\Persons\Controllers\SocialController@update', 'as' => 'api.persons.social.update']);
+        $api->delete('/persons/{personId}/socials/{socialId}', ['uses' => 'Api\Persons\Controllers\SocialController@delete', 'as' => 'api.persons.social.delete']);
+        $api->post('/persons/{personId}/socials', ['uses' => 'Api\Persons\Controllers\SocialController@create', 'as' => 'api.persons.social.create']);
+
+        /*
         Person Tag
          */
         $api->get('/persons/{personId}/tags', ['uses' => 'Api\Persons\Controllers\TagController@index', 'as' => 'api.persons.tag.index']);
@@ -112,6 +121,15 @@ $api->version('v1', function ($api) {
         $api->put('/tags/{identifier}', ['uses' => 'Api\Tags\Controllers\TagController@update', 'as' => 'api.tags.update']);
         $api->delete('/tags/{identifier}', ['uses' => 'Api\Tags\Controllers\TagController@delete','as' => 'api.tags.delete']);
         $api->post('/tags', ['uses' => 'Api\Tags\Controllers\TagController@create', 'as' => 'api.tags.create']);
+
+        /*
+        Socials
+         */
+        $api->get('/socials', ['uses' => 'Api\Socials\Controllers\SocialController@index', 'as' => 'api.socials.index']);
+        $api->get('/socials/{identifier}', ['uses' => 'Api\Socials\Controllers\SocialController@show', 'as' => 'api.socials.show']);
+        $api->put('/socials/{identifier}', ['uses' => 'Api\Socials\Controllers\SocialController@update', 'as' => 'api.socials.update']);
+        $api->delete('/socials/{identifier}', ['uses' => 'Api\Socials\Controllers\SocialController@delete','as' => 'api.socials.delete']);
+        $api->post('/socials', ['uses' => 'Api\Socials\Controllers\SocialController@create', 'as' => 'api.socials.create']);
 
         /*
         Operations

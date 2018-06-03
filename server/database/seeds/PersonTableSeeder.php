@@ -23,7 +23,8 @@ class PersonTableSeeder extends Seeder
             'contact_preference' => 'whatsapp',
             'email' => 'zack.snyder@gmail.com',
             'phone' => '41999999999',
-            'mobile' => null
+            'mobile' => null,
+            'user_id' => 1
         ]);
 
 
@@ -38,7 +39,8 @@ class PersonTableSeeder extends Seeder
             'contact_preference' => 'whatsapp',
             'email' => 'zack.snyder@gmail.com',
             'phone' => '41999999999',
-            'mobile' => null
+            'mobile' => null,
+            'user_id' => 1
         ]);
 
         DB::table('persons')->insert([
@@ -52,7 +54,8 @@ class PersonTableSeeder extends Seeder
             'contact_preference' => 'whatsapp',
             'email' => 'zack.snyder@gmail.com',
             'phone' => '41999999999',
-            'mobile' => null
+            'mobile' => null,
+            'user_id' => 1
         ]);
 
         DB::table('persons')->insert([
@@ -66,7 +69,8 @@ class PersonTableSeeder extends Seeder
             'contact_preference' => 'whatsapp',
             'email' => 'zack.snyder@gmail.com',
             'phone' => '41999999999',
-            'mobile' => null
+            'mobile' => null,
+            'user_id' => 1
         ]);
 
         DB::table('persons')->insert([
@@ -80,7 +84,8 @@ class PersonTableSeeder extends Seeder
             'contact_preference' => 'whatsapp',
             'email' => 'zack.snyder@gmail.com',
             'phone' => '41999999999',
-            'mobile' => null
+            'mobile' => null,
+            'user_id' => 1
         ]);
 
     }

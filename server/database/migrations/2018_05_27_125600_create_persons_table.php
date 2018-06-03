@@ -30,6 +30,9 @@ class CreatePersonsTable extends Migration
             $table->string('phone', '12')->nullable();
             $table->string('mobile', '12')->nullable();
 
+            $table->integer('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->timestamps();
             $table->softDeletes();
         });

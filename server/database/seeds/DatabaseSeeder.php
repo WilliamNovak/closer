@@ -13,17 +13,17 @@ class DatabaseSeeder extends Seeder
     {
         $this->call('RoleTableSeeder');
         $this->call('UserTableSeeder');
-        $this->call('SocialNetworkTableSeeder');
+        $this->call('SocialTableSeeder');
         $this->call('TagTableSeeder');
         $this->call('StageTableSeeder');
         $this->call('SourceTableSeeder');
         $this->call('OperationTableSeeder');
         $this->call('PersonTableSeeder');
-        $this->call('AddressTableSeeder');
-        $this->call('SocialTableSeeder');
+        $this->call('PersonAddressTableSeeder');
         $this->call('CustomFieldTableSeeder');
         $this->call('NoteTableSeeder');
         $this->call('PersonTagTableSeeder');
         $this->call('CollectionTableSeeder');
+        $this->call('PersonSocialTableSeeder');
     }
 }

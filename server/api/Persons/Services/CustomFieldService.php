@@ -30,7 +30,7 @@ class CustomFieldService extends Service
     }
 
     /**
-     * Get requested customField by id.
+     * Get requested custom field by id.
      *
      * @param int $customFieldId (default: 0)
      * @param bool $foundOrDie (default: true)
