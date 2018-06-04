@@ -80,9 +80,7 @@ class AuthController extends Controller
     {
         return new JsonResponse([
             'message' => 'token_generated',
-            'data' => [
-                'token' => $token,
-            ]
+            'token' => $token
         ]);
     }
 
@@ -125,9 +123,7 @@ class AuthController extends Controller
 
         return new JsonResponse([
             'message' => 'token_refreshed',
-            'data' => [
-                'token' => $newToken
-            ]
+            'token' => $newToken
         ]);
     }
 
@@ -138,9 +134,13 @@ class AuthController extends Controller
      */
     public function getUser()
     {
-        return new JsonResponse([
-            'message' => 'authenticated_user',
-            'data' => JWTAuth::parseToken()->authenticate()
-        ]);
+        $user = JWTAuth::parseToken()->authenticate();
+        $role = JWTAuth::parseToken()->authenticate()->role->slug;
+        $current = [
+            'message' => 'user_authenticated',
+            'user' => $user
+        ];
+        $current['user']['role'] = $role;
+        return new JsonResponse($current);
     }
 }

@@ -10,8 +10,11 @@
 | is ready to receive HTTP / Console requests from the environment.
 |
 */
+define( 'API_DIR', dirname(dirname(__FILE__)) . '/api/' );
 
 $app = require __DIR__.'/../bootstrap/app.php';
+
+
 
 /*
 |--------------------------------------------------------------------------
