@@ -7,17 +7,39 @@
             }
         ]
     ],
-    "plugins": ["react-hot-loader/babel"],
+    "plugins": [
+        "react-hot-loader/babel",
+        "transform-react-jsx-source",
+        "transform-react-remove-prop-types",
+        "minify-simplify",
+        [
+            "module-resolver", {
+                "cwd": "babelrc",
+                "root": ["./src"],
+                "extensions": [".jsx", ".js"],
+                "alias": {
+                    "utils": "./src/utils",
+                    "commons": "./src/commons",
+                    "api": "./src/api"
+                }
+            }
+        ]
+    ],
     "env": {
         "browser": {
             "plugins": [
                 ["transform-imports", {
-                    "redux-form": {
-                        "transform": "redux-form/es/${member}",
-                        "preventFullImport": true
-                    }
+                        "redux-form": {
+                            "transform": "redux-form/es/${member}",
+                            "preventFullImport": true
+                        }
                     }
                 ]
+            ]
+        },
+        "production": {
+            "plugins": [
+                "transform-remove-console"
             ]
         }
     }

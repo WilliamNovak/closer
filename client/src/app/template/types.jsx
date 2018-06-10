@@ -1,4 +1,0 @@
-export default {
-    TOGGLE_MENU: 'TOGGLE_MENU',
-    CHANGE_TEMPLATE: 'CHANGE_TEMPLATE'
-}
