@@ -1,4 +1,0 @@
-export default {
-    DEVICE_FETCHED: 'DEVICE_FETCHED',
-    DEVICES_FETCHED: 'DEVICES_FETCHED'
-}

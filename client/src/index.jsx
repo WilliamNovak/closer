@@ -1,32 +1,34 @@
-import './dependencies'
+import 'bootstrap/dist/css/bootstrap.css'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { applyMiddleware, createStore } from 'redux'
-import { Provider } from 'react-redux'
 
+/* redux */
 import promise from 'redux-promise'
 import multi from 'redux-multi'
 import thunk from 'redux-thunk'
+import { applyMiddleware, createStore } from 'redux'
+import { Provider } from 'react-redux'
 
-import App from './application'
-import reducers from './reducers'
+/* application */
+import Application from 'application/index'
+import reducers from 'application/reducers'
 
-import { interceptors } from './middleware/axios'
-import { sessions } from './app/auth/initialize'
+/* api */
+import { initialize, loadingCalls } from 'api'
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 const store = applyMiddleware(multi, thunk, promise)(createStore)(reducers, devTools)
 
-interceptors(store)
-sessions(store)
+loadingCalls(store)
+initialize()
 
 /**
  * Render.
  */
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <Application />
     </Provider>,
     document.getElementById('app')
 )

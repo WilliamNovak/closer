@@ -1,0 +1,6 @@
+export const API_URL = 'http://localhost'
+export const MANAGER_ROLE = 'manager'
+export const ADMIN_ROLE = 'admin'
+export const GUEST_ROLE = 'guest'
+export const USER = 'user'
+export const TOKEN_NAME = 'Authorization'

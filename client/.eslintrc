@@ -20,5 +20,10 @@
         "plugin:react/recommended"
     ],
     "rules": {
+    },
+    "settings": {
+        "import/resolver": {
+            "babel-module": {}
+        }
     }
 }

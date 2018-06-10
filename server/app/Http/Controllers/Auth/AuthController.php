@@ -22,6 +22,9 @@ class AuthController extends Controller
      */
     public function postLogin(Request $request)
     {
+
+        sleep(1);
+
         try {
             $this->validate($request, [
                 'email' => 'required|email|max:255',
